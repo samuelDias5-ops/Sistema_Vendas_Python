@@ -1,7 +1,7 @@
 def pedir_numero(mensagem):
     while True:
         try:
-            mensagem = 
+            mensagem 
         except(TypeError,ValueError):
             print("Insira um valor válido!")
             continue
