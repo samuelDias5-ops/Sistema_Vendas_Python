@@ -1,0 +1,11 @@
+1 - Analisar e compreender o código todo
+2 - Resolver ambiguidades no código
+3 - Refatorar o código
+4 - Usar modularização, para deixar o main mais limpo e legível
+5 - Tratar os erros(try/except)
+6 - Add usuarios(registar quem fez a compra)
+7 - Add a biblioteca rich(para tabelas, cores no termial e deixar o sistema mais bonito)
+8 - Instalar a biblioteca "mysql-connector-python" e Criar um banco no workbench
+9 - Conectar ao sevidor e testar a conexão 
+10 - Integrar ao banco de dados MySQL
+11 - Python conversando com SQL e vice versa
