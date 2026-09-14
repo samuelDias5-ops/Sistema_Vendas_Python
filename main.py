@@ -1,10 +1,10 @@
 import os
+from produtos.cadastrar_produtos import cadastrar
 estoque = []
 
-def menu_inicial():
-    while True:
-        os.system('cls' if os.name == 'nt' else 'clear')
 
+def tela_inicial():
+    while True:
         print("-" * 40)
         print("===== Tela Inicial =====\n")
         print("1- Cadastrar Produto")
@@ -12,24 +12,32 @@ def menu_inicial():
         print("3- Verificar quantidade em estoque")
         print("4- Sair")
         print("-" * 40)
-
+        
         try:
-            op = int(input("Ecolha uma opção: "))
-            os.system('cls' if os.name == 'nt' else 'clear')
-            match op:
+            op = int(input("Escolha uma opção: "))
+        except(ValueError, TypeError, KeyboardInterrupt):
+            print("Opção inválida")
+            continue
+        else:
+            try:
+                continuar = input("Deseja tentar novamnete (s/n)? ").lower().strip()
+            except:
+                continue
+            else:
+                if continuar == "S".lower().strip():
+                    continue
+                elif continuar == "N".lower().strip():
+                    break
+            return op
+        
+
+def main():
+    while True:
+        op = tela_inicial()
+        os.system('cls' if os.name == 'nt' else 'clear')
+        match op:
                 case 1:
-                    nome = input(("Digite nome do produto: "))
-                    preco = float(input("Digite preço do produto: "))
-                    quantidade = int(input(("Digite quantidade me estoque:")))
-                    produto = {"nome": nome.lower(), "preço": preco, "quantidade": quantidade}
-                    estoque.append(produto)
-                    print(f"Nome: {nome}| Preço: {preco}Kz| Qtd: {quantidade}, produto cadastrado com sucesso!")
-                    continuar = input("Deseja continuar (s/n)? ")
-                    if continuar == "s":
-                        continue
-                    elif continuar == "n":
-                        break
-                    os.system('cls' if os.name == 'nt' else 'clear')
+                    pr = cadastrar()
 
                 case 2:
                     produto = input("Digite o nome do produto que deseja comprar: ").lower()
@@ -87,17 +95,11 @@ def menu_inicial():
                 case _:
                     print("Opção incorreta.")
                     
-        except(ValueError, TypeError, KeyboardInterrupt):
-                    print("Opção inválida")
-                    continuar = input("Deseja tentar novamnete (s/n)? ")
-                    if continuar == "s":
-                        continue
-                    elif continuar == "n":
-                        break
+       
                     os.system('cls' if os.name == 'nt' else 'clear')
 
 
-menu_inicial()
+main()
 
 
 
