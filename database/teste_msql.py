@@ -6,7 +6,7 @@ conexao = mysql.connector.connect(
     host = "127.0.0.1",
     port=3306,
     user = "root",
-    password = "Animes@123",
+    password = "******",
     connection_timeout=5,
     use_pure=True
 )
